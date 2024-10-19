@@ -2,6 +2,8 @@
 
 let numCircles;
 let ypos = [];
+let xpos = [];
+let diam = [];
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
@@ -11,8 +13,10 @@ function setup() {
   //numCircles = int(width/25);
 
   for (let index = 0; index < numCircles; index += 1) {
-    //ypos.push(random(height));
-    ypos.push(0);
+    xpos.push(random(width));
+    ypos.push(random(height));
+    diam.push(random(30,100));
+
   }
 }
 
@@ -22,18 +26,14 @@ function draw() {
   //ellipse(width / 2, ypos[1], 50);
   //ellipse(width / 2 + 100, ypos[2], 50);
 
-  for (let index = 0; index < ypos.length; index += 1) {
-    let xpos = map(index, 0, ypos.length-1, 0, width);
+  for (let index = 0; index < ypos.length; index += 3) {
 
-    ellipse(xpos + 25, ypos[index], 50);
-    ypos[index] += 8;
-    if (ypos[index] > height) {
-      ypos[index] = random(-60, -30);
-    }
+    ellipse(xpos[index], ypos[index], diam[index]);
   }
 }
 
 function mousePressed(){
   ypos.push(random(height));
-
+  xpos.push(random(height));
+  diam.push(random(30,100));
 }
