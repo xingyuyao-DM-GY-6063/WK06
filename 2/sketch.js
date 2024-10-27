@@ -30,7 +30,7 @@ function draw() {
   for (let idx = 0; idx < circles.length; idx++) {
     let mCircle = circles[idx];
     fill(255, mCircle.a);
-    ellipse(circles[idx].x, mCircle.y, mCircle.d);
+    ellipse(mCircle.x, mCircle.y, mCircle.d);
     //circles[idx]=mCircle.x
     mCircle.a = (mCircle.a + mCircle.da) % 255;
     mCircle.x = mCircle.x + mCircle.dx;
